@@ -1,10 +1,9 @@
 // Loads the configuration from config.env to process.env
-require('dotenv').config({ path: './.env' });
-
-const express = require('express');
-const cors = require('cors');
+import 'dotenv'
+import express from 'express';
+import cors from 'cors';
 // get MongoDB driver connection
-const dbo = require('./db/conn');
+import driver from './db/conn';
 
 const PORT = process.env.PORT || 9000;
 const app = express();
@@ -15,12 +14,12 @@ app.use(require('./routes/record'));
 
 // Global error handling
 app.use(function (err, _req, res) {
-	console.error("Global Error: ", err.stack);
+	console.error("Global Error: ", err.stack, res?.err);
 //	res.status(400).send('Something broke!');
 });
 
 // perform a database connection when the server starts
-dbo.connectToServer(function (err) {
+driver.connectToServer(function (err) {
   if (err) {
     console.error("Error:", err);
     process.exit();

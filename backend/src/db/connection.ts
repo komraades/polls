@@ -1,5 +1,7 @@
-const { MongoClient } = require('mongodb');
-const connectionString = process.env.URI;
+import { MongoClient } from 'mongodb';
+import {DBNAME, URI } from "../constants.ts"
+
+const connectionString = URI;
 const client = new MongoClient(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -14,7 +16,7 @@ module.exports = {
         return callback(err);
       }
 
-      dbConnection = db.db('firsttry');
+      dbConnection = db.db(DBNAME);
       console.log('connected to MongoDB successfully.');
 
       return callback();
