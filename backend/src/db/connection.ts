@@ -1,17 +1,18 @@
 import { MongoClient } from 'mongodb';
-import {DBNAME, URI } from "../constants.ts"
+import constants from "../constants"
 
+const {DBNAME, URI } = constants
 const connectionString = URI;
 const client = new MongoClient(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-let dbConnection;
+let dbConnection:any;
 
-module.exports = {
-  connectToServer: function (callback) {
-    client.connect(function (err, db) {
+export default {
+  connectToServer: function (callback: any) {
+    client.connect(function (err:Error, db:any) {
       if (err || !db) {
         return callback(err);
       }

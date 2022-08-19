@@ -3,7 +3,7 @@ import 'dotenv'
 import express from 'express';
 import cors from 'cors';
 // get MongoDB driver connection
-import driver from './db/conn';
+import driver from './db/connection';
 
 const PORT = process.env.PORT || 9000;
 const app = express();
@@ -13,9 +13,9 @@ app.use(express.json());
 app.use(require('./routes/record'));
 
 // Global error handling
-app.use(function (err, _req, res) {
-	console.error("Global Error: ", err.stack, res?.err);
-//	res.status(400).send('Something broke!');
+app.use(function (_, res) {
+//	console.error("Global Error: ");
+	res.status(400).send('Something broke!');
 });
 
 // perform a database connection when the server starts
