@@ -1,5 +1,5 @@
-import { Header, Footer, Main } from "./components/index";
-import {Outlet} from "react-router-dom";
+import { Header, Footer } from "./components/index";
+import { Outlet } from "react-router-dom";
 
 const App: React.FC = () => {
   return (
