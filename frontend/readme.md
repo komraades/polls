@@ -8,9 +8,9 @@
 
 ## Todo
 
-- [ ] / - Main Route
+- [x] / - Main Route
 - [x] /question - Route for setting question
 - [x] /vote/:question_id - Route for voting
 - [ ] /results - Route for showing results
 - [ ] /results/:question_id - Route for showing results for specific question
-- [ ] setup react-router-dom
+- [x] setup react-router-dom
