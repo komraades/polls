@@ -1,8 +1,8 @@
 const Header: React.FC = () => {
   return (
-    <header className="w-full text-center py-3 text-4xl font-bold text-slate-400">
+    <nav className="w-full h-[10vh] text-center text-4xl font-bold text-slate-400 flex items-center justify-center">
       Polls
-    </header>
+    </nav>
   );
 };
 
