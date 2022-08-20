@@ -88,4 +88,4 @@ const recordRoutes = express.Router();
 //     });
 // });
 
-module.exports = recordRoutes;
+export default recordRoutes;

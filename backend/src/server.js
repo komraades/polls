@@ -4,13 +4,14 @@ import express from 'express';
 import cors from 'cors';
 // get MongoDB driver connection
 import driver from './db/connection';
+import recordRoutes from './routes/record'
 
 const PORT = process.env.PORT || 9000;
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(require('./routes/record'));
+app.use(recordRoutes);
 
 // Global error handling
 app.use(function (_, res) {
