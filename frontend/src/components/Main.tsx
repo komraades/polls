@@ -1,10 +1,13 @@
 import React from "react";
-import Question from "./question";
+import Vote from "./question";
+import SetQuestion from "./setquestion";
+
 
 const Main: React.FC = () => {
   return (
-    <main className="h-screen relative flex items-center justify-center flex-col pt-3">
-      <Question />
+    <main className="flex-1 overflow-y-clip relative flex items-center justify-center flex-col pt-3">
+      {/* <VotePage /> */}
+      <SetQuestion />
     </main>
   );
 };
