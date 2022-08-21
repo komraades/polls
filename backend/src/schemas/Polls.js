@@ -1,22 +1,24 @@
 import { ObjectId } from "mongodb";
-import { Schema } from "mongoose";
+import mongoose from "mongoose";
 
-const User = new Schema({
+export const UserSchema = new mongoose.Schema({
   id: ObjectId, // a unique nanoid
   name: String,
 });
 
-const Vote = new Schema({
-  user: User,
+
+const VoteSchema = new mongoose.Schema({
+  user: UserSchema,
   choice: Boolean,
 });
 
-export const questionSchema = new Schema({
+
+export const QuestionSchema = new mongoose.Schema({
   title: String,
   subtitle: String,
-  author: User,
-  yesVotes: [Vote],
-  noVotes: [Vote],
+  author: UserSchema,
+  yesVotes: [VoteSchema],
+  noVotes: [VoteSchema],
   createdAt: Date,
 });
 

@@ -5,13 +5,14 @@ import cors from 'cors';
 // get MongoDB driver connection
 import driver from './db/connection.js';
 import recordRoutes from './routes/record.js'
+import './models/polls.js'
 
 const PORT = process.env.PORT || 9000;
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use('/', recordRoutes);
+app.use(recordRoutes);
 
 // Global error handling
 app.use(function (_, res) {
@@ -23,11 +24,11 @@ app.use(function (_, res) {
 driver.connectToServer(function (err) {
   if (err) {
     console.error("502 Error:", err);
-    process.exit();
+    // process.exit();
   }
 
   // start the Express server
   app.listen(PORT, () => {
-    console.log(`Running on port: ${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
   });
 });

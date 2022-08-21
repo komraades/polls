@@ -1,3 +1,4 @@
 import mongoose from 'mongoose';
-export const questionModel = mongoose.model("Question", questionSchema);
-export const userModel = mongoose.model("User", userSchema);
+import {QuestionSchema, UserSchema} from '../schemas/Polls.js'
+export const questionModel = mongoose.model("Question", QuestionSchema);
+export const userModel = mongoose.model("User", UserSchema);
