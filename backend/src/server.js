@@ -1,10 +1,11 @@
 // Loads the configuration from config.env to process.env
-import 'dotenv'
+import 'dotenv';
 import express from 'express';
 import cors from 'cors';
 // get MongoDB driver connection
-import driver from './db/connection';
-import recordRoutes from './routes/record'
+import driver from './db/connection.js';
+import recordRoutes from './routes/record.js';
+import './models/polls.js';
 
 const PORT = process.env.PORT || 9000;
 const app = express();
@@ -15,19 +16,19 @@ app.use(recordRoutes);
 
 // Global error handling
 app.use(function (_, res) {
-//	console.error("Global Error: ");
-	res.status(400).send('Something broke!');
+  //	console.error("Global Error: ");
+  res.status(400).send('Something broke!');
 });
 
 // perform a database connection when the server starts
 driver.connectToServer(function (err) {
   if (err) {
-    console.error("Error:", err);
-    process.exit();
+    console.error('502 Error:', err);
+    // process.exit();
   }
 
   // start the Express server
   app.listen(PORT, () => {
-    console.log(`Running on port: ${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
   });
 });

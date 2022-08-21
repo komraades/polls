@@ -1,29 +1,27 @@
-import { MongoClient } from 'mongodb';
-import constants from "../constants"
+import mongoose from 'mongoose';
+import config from '../config.js';
 
-const {DBNAME, URI } = constants
-const connectionString = URI;
-const client = new MongoClient(connectionString, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const connection = connect();
 
-let dbConnection:any;
+/* Connect to the database */
+function connect() {
+  console.log('Connecting to database...');
+  let options = { useNewUrlParser: true, useUnifiedTopology: true };
+  mongoose.connect(config.REMOTE_URI, options);
+  return mongoose.connection;
+}
+
+let dbConnection;
 
 export default {
-  connectToServer: function (callback: any) {
-    client.connect(function (err:Error, db:any) {
-      if (err || !db) {
-        return callback(err);
-      }
-
-      dbConnection = db.db(DBNAME);
-      console.log('connected to MongoDB successfully.');
-
-      return callback();
-    });
+  connectToServer: function (callback) {
+    connection
+      .on('error', () => callback('Error connecting to DB... '))
+      .on('disconnected', connect)
+      .once('open', callback);
   },
 
+  //TODO: Define Database instance here
   getDb: function () {
     return dbConnection;
   },
