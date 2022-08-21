@@ -1,11 +1,11 @@
 // Loads the configuration from config.env to process.env
-import 'dotenv'
+import 'dotenv';
 import express from 'express';
 import cors from 'cors';
 // get MongoDB driver connection
 import driver from './db/connection.js';
-import recordRoutes from './routes/record.js'
-import './models/polls.js'
+import recordRoutes from './routes/record.js';
+import './models/polls.js';
 
 const PORT = process.env.PORT || 9000;
 const app = express();
@@ -23,7 +23,7 @@ app.use(function (_, res) {
 // perform a database connection when the server starts
 driver.connectToServer(function (err) {
   if (err) {
-    console.error("502 Error:", err);
+    console.error('502 Error:', err);
     // process.exit();
   }
 

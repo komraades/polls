@@ -1,7 +1,5 @@
-import { MongoClient } from 'mongodb';
 import mongoose from 'mongoose';
 import config from '../config.js';
-
 
 const connection = connect();
 
@@ -17,14 +15,10 @@ let dbConnection;
 
 export default {
   connectToServer: function (callback) {
-    connection.on(
-      'error', () => callback("Error connecting to DB... ")
-    ).on(
-      'disconnected', connect
-    ).once(
-      'open', callback
-    );
-
+    connection
+      .on('error', () => callback('Error connecting to DB... '))
+      .on('disconnected', connect)
+      .once('open', callback);
   },
 
   //TODO: Define Database instance here
