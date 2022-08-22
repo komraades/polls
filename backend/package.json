@@ -24,7 +24,7 @@
     "@types/mongoose": "^5.11.97",
     "@types/node": "^18.7.7",
     "eslint": "^8.22.0",
-    "husky": "^7.0.2",
+    "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "nodemon": "^2.0.19",
     "prettier": "^2.4.1",
