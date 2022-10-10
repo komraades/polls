@@ -8,7 +8,6 @@
     "start": "node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "yarn eslint .",
-    "prettier": "yarn prettier --single-quote --write .",
     "build": "yarn run lint && yarn prettier --fix .",
     "prepare": "cd ../ && husky install server/.husky",
     "deploy": "firebase deploy --only functions",
