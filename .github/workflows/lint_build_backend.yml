@@ -20,6 +20,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - run: yarn install
-    - run: yarn run lint
+    - run: yarn run eslint --fix
     - run: yarn run prettier
     - run: yarn run build
