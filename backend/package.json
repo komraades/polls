@@ -4,8 +4,8 @@
   "type": "module",
   "main": "src/server.js",
   "scripts": {
-    "dev": "nodemon ./src/server.js",
-    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/index.js",
+    "start": "node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "prettier": "prettier --single-quote --write .",
@@ -21,8 +21,9 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.1",
+    "firebase-admin": "^11.1.0",
+    "firebase-functions": "^3.24.1",
     "mongodb": "^4.9.0"
-    "firebase-functions": "^3.6.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
