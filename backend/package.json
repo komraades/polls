@@ -8,12 +8,12 @@
     "start": "node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "yarn eslint .",
-    "build": "yarn run lint && yarn prettier --fix .",
+    "build": "yarn run lint && yarn prettier --write .",
     "prepare": "cd ../ && husky install server/.husky",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
- "dependencies": {
+  "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.1",

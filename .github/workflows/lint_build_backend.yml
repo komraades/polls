@@ -20,6 +20,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - run: cd backend && yarn install
-    - run: cd backend && yarn run eslint --fix
-    - run: cd backend && yarn prettier --fix src/**
     - run: cd backend && yarn run build
