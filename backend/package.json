@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "prettier": "prettier --single-quote --write .",
-    "build": "yarn run lint && yarn run prettier --fix"
+    "build": "yarn run lint && yarn run prettier --fix",
     "prepare": "cd ../ && husky install server/.husky"
   },
   "dependencies": {
