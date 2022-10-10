@@ -1,0 +1,10 @@
+version: "1"
+services:
+       polls-backend:
+           container_name: polls-backend
+           image: amar-jay/polls-backend
+           restart: always
+           build: .
+           ports:
+             - "9000:9000"
+          
