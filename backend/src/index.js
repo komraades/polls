@@ -2,7 +2,7 @@
 import 'dotenv';
 import express from 'express';
 import cors from 'cors';
-import * as functions from 'firebase-functions';
+//import * as functions from 'firebase-functions';
 // get MongoDB driver connection
 import driver from './db/connection.js';
 import recordRoutes from './routes/record.js';
@@ -34,4 +34,4 @@ driver.connectToServer(function (err) {
   });
 });
 
-export const api = functions.https.onRequest(app);
+//export const api = functions.https.onRequest(app);
