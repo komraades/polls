@@ -1,12 +1,13 @@
-name: Node.js CI
+name: Lint / Build Frontend
 
-on: [push]
-
+on: 
+  push:
+    paths: "frontend/*"
+ 
 jobs:
   build:
-
+   
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [10.x, 12.x]
@@ -17,5 +18,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
-#    - run: npm run test
+    
+    - run: yarn install
+    - run: yarn run build
