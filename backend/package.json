@@ -7,15 +7,11 @@
     "dev": "nodemon ./src/index.js",
     "start": "node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint .",
-    "prettier": "prettier --single-quote --write .",
-    "build": "yarn run lint && yarn run prettier --fix",
+    "lint": "yarn eslint .",
+    "build": "yarn run lint && yarn prettier --write .",
     "prepare": "cd ../ && husky install server/.husky",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
-  },
-  "engines": {
-    "node": "16"
   },
   "dependencies": {
     "cors": "^2.8.5",
