@@ -1,4 +1,4 @@
-version: '1'
+version: "1"
 services:
   polls-backend:
     container_name: polls-backend
@@ -6,4 +6,4 @@ services:
     restart: always
     build: .
     ports:
-      - '9000:9000'
+      - "9000:9000"
